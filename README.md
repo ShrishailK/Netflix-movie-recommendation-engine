@@ -52,6 +52,8 @@ The three notebooks we see perform the follwong functions:
 
 ### Results : 
 
+The main findings of this project can be found in my medium post [here](https://shrishailkandi95.medium.com/content-based-movie-recommendation-system-for-netflix-using-natural-language-processing-53fdbcf94417 "Medium") 
+
 Average Word2Vec model:
 
 The results of average Word2Vec vectorization based model are not very relevant. The reason behind this is our idea to combine first and last names like ‘samueljackson’ to form a unique word in our text string to get rid of similarity perception our distance based similarity model might have between people having same first names. This technique works wonderfully well for other vectorization models. Unfortunately, these words do not exist in our word2vecmodel provided by Google. To make up for this discrepancy we assign zeros to all 300 dimensions of vector representing the word ‘samueljackson’ . Many such unique words in our corpus end up becoming zero vectors and do not contribute to the average word to vector conversion of our sentences. This leads to placing of the vector representing a movie in a region of vectors with not very similar movies due to zero vector representation of certain words in the strings.
@@ -68,4 +70,3 @@ Seeing our results we cannot determine which vectorization model is giving us be
 
 ## Licensing, Authors, Acknowledgements<a name="licensing"></a>
 Credit to Netflix for providing the data.
-
