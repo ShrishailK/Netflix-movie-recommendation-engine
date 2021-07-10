@@ -25,7 +25,7 @@ Here is the explanation of each pertinent feature in the file :
    - description : The description of the story movie / tv series
 
 The three notebooks we see perform the follwong functions:
- - ETL Notebook : This notebook contains the implemented Extract, Transform and load pipline (ETL pipeline). The ETL notebook contains main function which does the following:
+ - ETL Notebook : This notebook contains the implemented Extract, Transform and load pipline (ETL pipeline). The ETL notebook contains a class defined as ETL which does the following:
     -  Stores a dataset named df which contains description and listed_in column for each movie to be used later in better understanding of results. 
     -  Cleans the stopwords and lowers the entire text case in description column before converting  into a list for each movie stored in description column of that movie.
     -  Joins the first and the last name and lower the text case in director column before converting into a list for each movie stored in director column of that movie.
@@ -35,8 +35,9 @@ The three notebooks we see perform the follwong functions:
     -  Last step joins all the columns present in the form of lists for each movie, converts it into a string and stores it in new column named 'text' for that movie.
     -  The text and title column are kept for each movie and the rest of the columns are deleted. The text column is now in proper processed form to implement the machine learning pipeline on it to get results.
     -  The function also creates a dataset 
- - Modelling Notebook : This notebook contains the Machine learning pipeline developed with NLTK and Scikit-Learn. (The functions of this pipeline are well defined in the code and do not need an explanation)
- - Amazon recommendation engine : Run the above pipelines in this notebook to see the results.
+ - Modelling Notebook : This notebook contains the Machine learning pipeline developed with NLTK and Scikit-Learn. (The class defined as results of this pipeline are well defined in the code and do not need an explanation)
+ - Visualization : This notebook contains functions used in result class of the Machine learning pipeline(Modelling notebook) for result visualization.
+ - Amazon recommendation engine : Run this notebook to implement the above pipelines and see the results.
 
 
 ## Installation : <a name="installation"></a>
@@ -63,10 +64,9 @@ Tfidf & Bag of words:
 Seeing our results for bag of words and Tfidf vectorization models, we cannot determine which vectorization model is giving us better results. To find out which model is better we would have to first live test our recommendation models. We would divide our customers into random test groups of equal sizes and live test a model on each group. Second step would be to collect various response parameters or business parameters such as purchase conversion rate of recommendations, recommendation selection rate etc. Third step would be to perform multivariate A/B testing using these parameters after collecting significant amount of data to select which is the better performing model.
 
 ### Improvements :
+1. Word2Vec vectorization does not work well in our case because of the null vectors assigned to unique words not present in the Google's word to vec dictionary such as combination of cast first and last name as a single word, director first and last name as a single word etc. In order to make Word2Vec vectorization give more relevant results we will need to make our own Word2Vec dictionary using the corpus of words present in the relevant features of the dataset we model.
 
-In order to make our Word2Vec model work we need to create an alternate string of words without joining last names and first names of cast and directors. Also we should not merge our first and second word in the country names. The Google Word2Vec model may not have a vector representation for ‘samueljackson’ but has a vector representation for words ‘samuel’ and ‘jackson’. Also, we do not need to worry about other actors having the same first name ‘samuel’ but a different last name as being perceived similar by our model. As, in case of Average Word2Vec method we get the vector representation of our sentence by summation of vectors representing all the words in the given sentence, summation of vectors representing ‘Samuel’ and ‘Jackson’ will be different from summation of vectors representing ‘Samuel’ and last name ‘XYZ’. Hence with a more suitable text data we can solve the issue mentioned in ‘conclusion’ regarding zero vectors in the Googles Word2Vec vectorization.
-Seeing our results we cannot determine which vectorization model is giving us better results. To find out which model is better we would have to first live test our recommendation models. We would divide our customers into random test groups of equal sizes and live test a model on each group. Second step would be to collect various response parameters or business parameters such as purchase conversion percentage of recommendations, recommendation opening percentage etc. Third step would be to perform multivariate A/B testing using these parameters after collecting sufficiently large data to select the best performing model.
-
+2. Seeing our results we cannot determine which vectorization model is giving us better results amongst bag of words, Tfidf and idf vectorized models. To find out which model is better we would have to first live test our recommendation models. We would divide our customers into random test groups of equal sizes and live test a model on each group. Second step would be to collect various response parameters or business parameters such as purchase conversion rate of recommendations, recommendation selection rate etc. Third step would be to perform multivariate A/B testing using these parameters after collecting sufficiently large data to select the best performing model.
 
 ## Licensing, Authors, Acknowledgements<a name="licensing"></a>
 Credit to Netflix for providing the data.
