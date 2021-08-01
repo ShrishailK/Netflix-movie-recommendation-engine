@@ -13,6 +13,7 @@ Building an unsupervised content based recommendation engine. We want to build a
 What are we intereseted in answering the following question:
 1. What content is similar to current content being browsed by the user?
 
+
 ## Descriptions : <a name="file"></a>
 The dataset `netflix_titles.csv` used in this notebook contains real Netflix app content data.
 
@@ -23,8 +24,11 @@ Here is the explanation of each pertinent feature in the file :
    - cast : The name of the actors in the movie / tv series
    - listed_in : The genre and other categories under which a movie / tv series is listed
    - description : The description of the story movie / tv series
+## Program Flow:
 
-The three notebooks we see perform the follwong functions:
+![image](https://user-images.githubusercontent.com/75063039/127771179-b96f8ee4-2104-4837-94ed-32a425c7b6bf.png)
+
+The notebooks perform the follwong functions:
  - ETL Notebook : This notebook contains the implemented Extract, Transform and load pipline (ETL pipeline). The ETL notebook contains a class defined as ETL which does the following:
     -  Stores a dataset named df which contains description and listed_in column for each movie to be used later in better understanding of results. 
     -  Cleans the stopwords and lowers the entire text case in description column before converting  into a list for each movie stored in description column of that movie.
@@ -34,7 +38,7 @@ The three notebooks we see perform the follwong functions:
     -  Removes the ',' from listed_in and converts it into an list of words for each movie and stored in listed_in column of that movie
     -  Last step joins all the columns present in the form of lists for each movie, converts it into a string and stores it in new column named 'text' for that movie.
     -  The text and title column are kept for each movie and the rest of the columns are deleted. The text column is now in proper processed form to implement the machine learning pipeline on it to get results.
-    -  The function also creates a dataset 
+    -  The class also creates a dataset 
  - Modelling Notebook : This notebook contains the Machine learning pipeline developed with NLTK and Scikit-Learn. (The class defined as results of this pipeline are well defined in the code and do not need an explanation)
  - Visualization : This notebook contains functions used in result class of the Machine learning pipeline(Modelling notebook) for result visualization.
  - Amazon recommendation engine : Run this notebook to implement the above pipelines and see the results.
