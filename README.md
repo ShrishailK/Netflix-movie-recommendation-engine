@@ -24,11 +24,12 @@ Here is the explanation of each pertinent feature in the file :
    - cast : The name of the actors in the movie / tv series
    - listed_in : The genre and other categories under which a movie / tv series is listed
    - description : The description of the story movie / tv series
-## Program Flow:
+
+Program Flow:
 
 ![image](https://user-images.githubusercontent.com/75063039/127771179-b96f8ee4-2104-4837-94ed-32a425c7b6bf.png)
 
-The notebooks perform the follwong functions:
+Notebook descriptions:
  - ETL Notebook : This notebook contains the implemented Extract, Transform and load pipline (ETL pipeline). The ETL notebook contains a class defined as ETL which does the following:
     -  Stores a dataset named df which contains description and listed_in column for each movie to be used later in better understanding of results. 
     -  Cleans the stopwords and lowers the entire text case in description column before converting  into a list for each movie stored in description column of that movie.
