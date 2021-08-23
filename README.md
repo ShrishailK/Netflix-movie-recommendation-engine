@@ -29,6 +29,8 @@ Program Flow:
 
 ![image](https://user-images.githubusercontent.com/75063039/127771179-b96f8ee4-2104-4837-94ed-32a425c7b6bf.png)
 
+Check results present in the Netflix recommendation engine notebook.
+
 Notebook descriptions:
  - ETL Notebook : This notebook contains the implemented Extract, Transform and load pipline (ETL pipeline). The ETL notebook contains a class defined as ETL which does the following:
     -  Stores a dataset named df which contains description and listed_in column for each movie to be used later in better understanding of results. 
@@ -50,8 +52,6 @@ Notebook descriptions:
   - Cython 0.29.21 for using pretrained word2vec library by Google.
   - Matplotlib version 3.2.0 for heatmaps.
   - Python version  3.*.
-
-
 
 
 ## Results and Improvements: <a name="results"></a>
